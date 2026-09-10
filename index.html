@@ -1,115 +1,410 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — Page Not Found</title>
+
+    <title>404: This page could not be found</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         :root {
-            --bg: #07070a;
-            --text: #f5f5f7;
-            --muted: #8b8b96;
-            --accent: #8b5cf6;
-            --accent2: #06b6d4;
-            --card: rgba(255, 255, 255, 0.055);
-            --border: rgba(255, 255, 255, 0.11);
+            --background: #000;
+            --foreground: #ededed;
+            --muted: #888;
+            --border: #333;
+            --button: #fff;
+            --button-text: #000;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
         }
 
         body {
             min-height: 100vh;
-            overflow: hidden;
-            font-family: Inter, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: var(--background);
+            color: var(--foreground);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
-        /* Background */
+        /* Header */
 
-        .background {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-            z-index: -2;
-            background:
-                radial-gradient(
-                    circle at 50% 45%,
-                    rgba(139, 92, 246, 0.12),
-                    transparent 35%
-                ),
-                #07070a;
-        }
-
-        .grid {
+        header {
             position: absolute;
-            inset: -50%;
-            width: 200%;
-            height: 200%;
-            opacity: 0.18;
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,0.04) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.04) 1px,
-                    transparent 1px
-                );
-            background-size: 60px 60px;
-            transform: perspective(600px) rotateX(60deg) translateY(80px);
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 32px;
         }
 
-        .glow {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #fff;
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .logo {
+            width: 22px;
+            height: 22px;
+
+            display: block;
+
+            position: relative;
+        }
+
+        .logo::before {
+            content: "";
+
             position: absolute;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.35;
-            pointer-events: none;
+            left: 0;
+            top: 2px;
+
+            width: 0;
+            height: 0;
+
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-bottom: 18px solid #fff;
         }
 
-        .glow.one {
-            background: #7c3aed;
-            top: -150px;
-            left: -100px;
-            animation: moveOne 9s infinite alternate ease-in-out;
+        .logo::after {
+            content: "";
+
+            position: absolute;
+            left: 7px;
+            top: 8px;
+
+            width: 8px;
+            height: 8px;
+
+            background: #000;
+
+            transform: rotate(45deg);
         }
 
-        .glow.two {
-            background: #0891b2;
-            right: -150px;
-            bottom: -180px;
-            animation: moveTwo 11s infinite alternate ease-in-out;
+        .header-link {
+            color: #888;
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: color 0.2s ease;
         }
 
-        @keyframes moveOne {
-            from {
-                transform: translate(0, 0);
+        .header-link:hover {
+            color: #fff;
+        }
+
+        /* Main */
+
+        main {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 100px 24px;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 640px;
+
+            text-align: center;
+        }
+
+        /* 404 */
+
+        .error {
+            font-size: clamp(120px, 22vw, 220px);
+            line-height: 0.85;
+
+            font-weight: 700;
+            letter-spacing: -0.09em;
+
+            color: #fff;
+
+            user-select: none;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+
+            margin: 42px 0 32px;
+
+            background: var(--border);
+        }
+
+        h1 {
+            font-size: clamp(24px, 4vw, 32px);
+            line-height: 1.2;
+
+            font-weight: 600;
+            letter-spacing: -0.04em;
+
+            color: #fff;
+        }
+
+        p {
+            max-width: 470px;
+
+            margin: 14px auto 0;
+
+            color: var(--muted);
+
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Actions */
+
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+        button {
+            height: 40px;
+
+            padding: 0 18px;
+
+            border-radius: 7px;
+
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .primary {
+            border: 1px solid #fff;
+
+            background: #fff;
+            color: #000;
+        }
+
+        .primary:hover {
+            background: #eaeaea;
+        }
+
+        .secondary {
+            border: 1px solid var(--border);
+
+            background: transparent;
+            color: #ededed;
+        }
+
+        .secondary:hover {
+            border-color: #666;
+            background: #111;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+
+        footer {
+            position: absolute;
+            bottom: 24px;
+            left: 0;
+
+            width: 100%;
+
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 64px;
+                padding: 0 20px;
             }
-            to {
-                transform: translate(180px, 150px);
+
+            .header-link {
+                display: none;
+            }
+
+            main {
+                padding:
+                    80px 20px
+                    70px;
+            }
+
+            .error {
+                font-size: 120px;
+            }
+
+            .divider {
+                margin-top: 34px;
+                margin-bottom: 26px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                max-width: 260px;
+            }
+
+            footer {
+                bottom: 18px;
+                padding: 0 20px;
             }
         }
 
-        @keyframes moveTwo {
-            from {
-                transform: translate(0, 0);
-            }
-            to {
-                transform: translate(-160px, -120px);
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
             }
         }
+    </style>
+</head>
 
-        /* Particles */
+<body>
+
+    <header>
+
+        <a href="/" class="brand" aria-label="Home">
+            <span class="logo"></span>
+            <span>YOUR BRAND</span>
+        </a>
+
+        <a href="/" class="header-link">
+            Back to home
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <section class="content">
+
+            <div class="error">
+                404
+            </div>
+
+            <div class="divider"></div>
+
+            <h1>
+                This page could not be found.
+            </h1>
+
+            <p>
+                The page you are looking for doesn't exist or may have
+                been moved to another location.
+            </p>
+
+            <div class="actions">
+
+                <button
+                    class="primary"
+                    onclick="goHome()">
+                    Back to home
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="goBack()">
+                    Go back
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 YOUR BRAND
+    </footer>
+
+
+    <script>
+
+        function goHome() {
+            window.location.href = "/";
+        }
+
+        function goBack() {
+
+            if (document.referrer && history.length > 1) {
+                history.back();
+            } else {
+                goHome();
+            }
+
+        }
+
+    </script>
+
+</body>
+</htm        /* Particles */
 
         .particles {
             position: fixed;
@@ -589,4 +884,3 @@
 
 </body>
 </html>
-```
