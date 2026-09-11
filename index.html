@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,18 +18,17 @@
             --foreground: #ededed;
             --muted: #888;
             --border: #333;
-            --button: #fff;
-            --button-text: #000;
         }
 
         html,
         body {
             width: 100%;
-            min-height: 100%;
+            height: 100%;
         }
 
         body {
             min-height: 100vh;
+
             background: var(--background);
             color: var(--foreground);
 
@@ -47,91 +45,6 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* Header */
-
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 72px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 32px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            color: #fff;
-            text-decoration: none;
-
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        /* Vercel Triangle */
-
-        .logo {
-            width: 22px;
-            height: 22px;
-
-            display: block;
-            position: relative;
-        }
-
-        .logo::before {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            top: 2px;
-
-            width: 0;
-            height: 0;
-
-            border-left: 11px solid transparent;
-            border-right: 11px solid transparent;
-            border-bottom: 18px solid #fff;
-        }
-
-        .logo::after {
-            content: "";
-
-            position: absolute;
-
-            left: 7px;
-            top: 8px;
-
-            width: 8px;
-            height: 8px;
-
-            background: #000;
-
-            transform: rotate(45deg);
-        }
-
-        .header-link {
-            color: #888;
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-            transition: color 0.2s ease;
-        }
-
-        .header-link:hover {
-            color: #fff;
-        }
-
         /* Main */
 
         main {
@@ -141,7 +54,7 @@
             align-items: center;
             justify-content: center;
 
-            padding: 100px 24px;
+            padding: 40px 24px;
         }
 
         .content {
@@ -167,6 +80,8 @@
             user-select: none;
         }
 
+        /* Divider */
+
         .divider {
             width: 100%;
             height: 1px;
@@ -175,6 +90,8 @@
 
             background: var(--border);
         }
+
+        /* Heading */
 
         h1 {
             font-size: clamp(24px, 4vw, 32px);
@@ -188,6 +105,8 @@
             color: #fff;
         }
 
+        /* Description */
+
         p {
             max-width: 470px;
 
@@ -200,109 +119,13 @@
             line-height: 1.6;
         }
 
-        /* Actions */
-
-        .actions {
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 12px;
-
-            margin-top: 28px;
-        }
-
-        button {
-            height: 40px;
-
-            padding: 0 18px;
-
-            border-radius: 7px;
-
-            font-family: inherit;
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                border-color 0.2s ease,
-                transform 0.2s ease;
-        }
-
-        /* Vercel Primary Button */
-
-        .primary {
-            border: 1px solid #fff;
-
-            background: #fff;
-
-            color: #000;
-        }
-
-        .primary:hover {
-            background: #eaeaea;
-        }
-
-        /* Vercel Secondary Button */
-
-        .secondary {
-            border: 1px solid var(--border);
-
-            background: transparent;
-
-            color: #ededed;
-        }
-
-        .secondary:hover {
-            border-color: #666;
-
-            background: #111;
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        /* Footer */
-
-        footer {
-            position: absolute;
-
-            bottom: 24px;
-            left: 0;
-
-            width: 100%;
-
-            text-align: center;
-
-            color: #555;
-
-            font-size: 12px;
-        }
-
         /* Mobile */
 
         @media (max-width: 600px) {
 
-            header {
-                height: 64px;
-
-                padding: 0 20px;
-            }
-
-            .header-link {
-                display: none;
-            }
-
             main {
                 padding:
-                    80px 20px
-                    70px;
+                    40px 20px;
             }
 
             .error {
@@ -321,161 +144,34 @@
             p {
                 font-size: 14px;
             }
-
-            .actions {
-                flex-direction: column;
-
-                width: 100%;
-            }
-
-            button {
-                width: 100%;
-
-                max-width: 260px;
-            }
-
-            footer {
-                bottom: 18px;
-
-                padding: 0 20px;
-            }
-        }
-
-        /* Reduced Motion */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            * {
-                transition: none !important;
-            }
-
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-
-    <header>
-
-        <a
-            href="/"
-            class="brand"
-            aria-label="Vercel Home"
-        >
-
-            <span class="logo"></span>
-
-            <span>Vercel</span>
-
-        </a>
-
-
-        <a
-            href="/"
-            class="header-link"
-        >
-            Back to home
-        </a>
-
-    </header>
-
-
-    <!-- Main -->
-
     <main>
 
         <section class="content">
-
-            <!-- Error Code -->
 
             <div class="error">
                 404
             </div>
 
-
-            <!-- Divider -->
-
             <div class="divider"></div>
-
-
-            <!-- Message -->
 
             <h1>
                 This page could not be found.
             </h1>
-
 
             <p>
                 The page you are looking for doesn't exist or may have
                 been moved to another location.
             </p>
 
-
-            <!-- Buttons -->
-
-            <div class="actions">
-
-                <button
-                    class="primary"
-                    onclick="goHome()"
-                >
-                    Back to home
-                </button>
-
-
-                <button
-                    class="secondary"
-                    onclick="goBack()"
-                >
-                    Go back
-                </button>
-
-            </div>
-
         </section>
 
     </main>
 
-
-    <!-- Footer -->
-
-    <footer>
-        © 2026 Vercel Inc.
-    </footer>
-
-
-    <!-- JavaScript -->
-
-    <script>
-
-        function goHome() {
-
-            window.location.href = "/";
-
-        }
-
-
-        function goBack() {
-
-            if (
-                document.referrer &&
-                history.length > 1
-            ) {
-
-                history.back();
-
-            } else {
-
-                goHome();
-
-            }
-
-        }
-
-    </script>
-
 </body>
 </html>
-
