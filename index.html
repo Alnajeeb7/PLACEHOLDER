@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +33,7 @@
             min-height: 100vh;
             background: var(--background);
             color: var(--foreground);
+
             font-family:
                 Inter,
                 ui-sans-serif,
@@ -75,12 +77,13 @@
             letter-spacing: -0.02em;
         }
 
+        /* Vercel Triangle */
+
         .logo {
             width: 22px;
             height: 22px;
 
             display: block;
-
             position: relative;
         }
 
@@ -103,6 +106,7 @@
             content: "";
 
             position: absolute;
+
             left: 7px;
             top: 8px;
 
@@ -116,6 +120,7 @@
 
         .header-link {
             color: #888;
+
             text-decoration: none;
 
             font-size: 13px;
@@ -150,9 +155,11 @@
 
         .error {
             font-size: clamp(120px, 22vw, 220px);
+
             line-height: 0.85;
 
             font-weight: 700;
+
             letter-spacing: -0.09em;
 
             color: #fff;
@@ -171,9 +178,11 @@
 
         h1 {
             font-size: clamp(24px, 4vw, 32px);
+
             line-height: 1.2;
 
             font-weight: 600;
+
             letter-spacing: -0.04em;
 
             color: #fff;
@@ -187,6 +196,7 @@
             color: var(--muted);
 
             font-size: 15px;
+
             line-height: 1.6;
         }
 
@@ -194,6 +204,7 @@
 
         .actions {
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -210,7 +221,9 @@
             border-radius: 7px;
 
             font-family: inherit;
+
             font-size: 14px;
+
             font-weight: 500;
 
             cursor: pointer;
@@ -221,10 +234,13 @@
                 transform 0.2s ease;
         }
 
+        /* Vercel Primary Button */
+
         .primary {
             border: 1px solid #fff;
 
             background: #fff;
+
             color: #000;
         }
 
@@ -232,15 +248,19 @@
             background: #eaeaea;
         }
 
+        /* Vercel Secondary Button */
+
         .secondary {
             border: 1px solid var(--border);
 
             background: transparent;
+
             color: #ededed;
         }
 
         .secondary:hover {
             border-color: #666;
+
             background: #111;
         }
 
@@ -252,6 +272,7 @@
 
         footer {
             position: absolute;
+
             bottom: 24px;
             left: 0;
 
@@ -270,6 +291,7 @@
 
             header {
                 height: 64px;
+
                 padding: 0 20px;
             }
 
@@ -302,74 +324,111 @@
 
             .actions {
                 flex-direction: column;
+
                 width: 100%;
             }
 
             button {
                 width: 100%;
+
                 max-width: 260px;
             }
 
             footer {
                 bottom: 18px;
+
                 padding: 0 20px;
             }
         }
 
+        /* Reduced Motion */
+
         @media (prefers-reduced-motion: reduce) {
+
             * {
                 transition: none !important;
             }
+
         }
     </style>
 </head>
 
 <body>
 
+    <!-- Header -->
+
     <header>
 
-        <a href="/" class="brand" aria-label="Home">
+        <a
+            href="/"
+            class="brand"
+            aria-label="Vercel Home"
+        >
+
             <span class="logo"></span>
-            <span>YOUR BRAND</span>
+
+            <span>Vercel</span>
+
         </a>
 
-        <a href="/" class="header-link">
+
+        <a
+            href="/"
+            class="header-link"
+        >
             Back to home
         </a>
 
     </header>
 
 
+    <!-- Main -->
+
     <main>
 
         <section class="content">
+
+            <!-- Error Code -->
 
             <div class="error">
                 404
             </div>
 
+
+            <!-- Divider -->
+
             <div class="divider"></div>
+
+
+            <!-- Message -->
 
             <h1>
                 This page could not be found.
             </h1>
+
 
             <p>
                 The page you are looking for doesn't exist or may have
                 been moved to another location.
             </p>
 
+
+            <!-- Buttons -->
+
             <div class="actions">
 
                 <button
                     class="primary"
-                    onclick="goHome()">
+                    onclick="goHome()"
+                >
                     Back to home
                 </button>
 
+
                 <button
                     class="secondary"
-                    onclick="goBack()">
+                    onclick="goBack()"
+                >
                     Go back
                 </button>
 
@@ -380,23 +439,37 @@
     </main>
 
 
+    <!-- Footer -->
+
     <footer>
-        © 2026 YOUR BRAND
+        © 2026 Vercel Inc.
     </footer>
 
+
+    <!-- JavaScript -->
 
     <script>
 
         function goHome() {
+
             window.location.href = "/";
+
         }
+
 
         function goBack() {
 
-            if (document.referrer && history.length > 1) {
+            if (
+                document.referrer &&
+                history.length > 1
+            ) {
+
                 history.back();
+
             } else {
+
                 goHome();
+
             }
 
         }
@@ -405,3 +478,4 @@
 
 </body>
 </html>
+```
